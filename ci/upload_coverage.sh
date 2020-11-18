@@ -13,9 +13,5 @@ function curl-harder() {
     return 1
 }
 
-if [ "$JOB_NAME" = "" ]; then
-    JOB_NAME="${TRAVIS_OS_NAME}-${TRAVIS_PYTHON_VERSION:-unknown}"
-fi
-
 curl-harder -o codecov.sh https://codecov.io/bash
 bash codecov.sh -f coverage.xml -n $JOB_NAME
